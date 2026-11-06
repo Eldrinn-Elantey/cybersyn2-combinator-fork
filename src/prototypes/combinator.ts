@@ -59,4 +59,4 @@ if (cybersynRecipe && cybersynRecipe.order) {
 
 data.extend([combi, combiItem, combiRecipe]);
 
-dataUtil.unlockRecipeWithTechnology(ENTITY_NAME, 'cybersyn2-train-network');
+dataUtil.unlockRecipeWithTechnology(ENTITY_NAME, 'automated-rail-transportation');
