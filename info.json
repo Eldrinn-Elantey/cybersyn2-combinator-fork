@@ -1,0 +1,15 @@
+{
+  "name": "cybersyn2-combinator-fork",
+  "version": "2.1.4",
+  "factorio_version": "2.1",
+  "title": "Cybersyn 2 Constant Combinator Fork",
+  "author": "Eldrinn",
+  "homepage": "https://github.com/Eldrinn-Elantey/cybersyn2-combinator-fork",
+  "description": "Fork of the Cybersyn 2 Constant Combinator by moral1ty.",
+  "dependencies": [
+    "fcore >= 1.0.0",
+    "cybersyn2",
+    "0-things",
+    "! cybersyn2-combinator"
+  ]
+}

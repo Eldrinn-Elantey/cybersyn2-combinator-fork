@@ -20,9 +20,14 @@ async function build() {
       await fs.copy(staticDir, distDir);
     }
 
+    for (const file of ['info.json', 'changelog.txt', 'License.txt']) {
+      await fs.copy(path.join(rootDir, file), path.join(distDir, file));
+    }
+
     console.log('[Build] Success! Compiled mod output is ready in ./dist/');
   } catch (err) {
     console.error('[Build] Error: TSTL compilation failed.');
+    process.exitCode = 1;
   }
 }
 

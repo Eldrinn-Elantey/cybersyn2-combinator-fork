@@ -1,18 +1,17 @@
 {
-  "name": "cybersyn2-combinator",
+  "name": "cybersyn2-combinator-fork",
   "version": "2.1.4",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run format && npm run lint && node build.mjs",
-    "build:all": "npm --prefix ../fcore run build && npm run build",
-    "release": "node release.mjs",
+    "build": "node build.mjs",
+    "check": "npm run format && npm run lint && npm run build",
     "watch": "node build.mjs --watch",
     "lint": "eslint src/",
     "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "fcore": "file:../fcore"
+    "fcore": "npm:@vladislavprimakov/fcore@1.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.0.0",

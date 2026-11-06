@@ -7,14 +7,14 @@ declare function make_4way_animation_from_spritesheet(arg: any): any;
 
 const name = ENTITY_NAME;
 const combi = dataUtil.copyPrototype(data.raw['constant-combinator']['constant-combinator']!, name);
-combi.icon = '__cybersyn2-combinator__/graphics/cybersyn-combinator-icon.png';
+combi.icon = '__cybersyn2-combinator-fork__/graphics/cybersyn-combinator-icon.png';
 combi.icon_size = 64;
 combi.next_upgrade = undefined;
 combi.fast_replaceable_group = 'constant-combinator';
 combi.sprites = make_4way_animation_from_spritesheet({
   layers: [
     {
-      filename: '__cybersyn2-combinator__/graphics/cybersyn-combinator-entity.png',
+      filename: '__cybersyn2-combinator-fork__/graphics/cybersyn-combinator-entity.png',
       scale: 0.5,
       width: 114,
       height: 102,
@@ -32,7 +32,7 @@ combi.sprites = make_4way_animation_from_spritesheet({
 });
 
 const combiItem = dataUtil.copyPrototype(data.raw.item['constant-combinator']!, name);
-combiItem.icon = '__cybersyn2-combinator__/graphics/cybersyn-combinator-icon.png';
+combiItem.icon = '__cybersyn2-combinator-fork__/graphics/cybersyn-combinator-icon.png';
 combiItem.icon_size = 64;
 combiItem.subgroup = data.raw.item['train-stop']?.subgroup;
 combiItem.place_result = name;

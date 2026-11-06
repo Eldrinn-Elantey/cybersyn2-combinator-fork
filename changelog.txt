@@ -1,4 +1,9 @@
 ----------------------------------------------------------------------------------------------------
+Version: 0.0.0
+  Changes:
+    - Forked from Cybersyn 2 Constant Combinator 2.1.4 as cybersyn2-combinator-fork. The combinator and its settings are the same.
+    - Incompatible with cybersyn2-combinator, which adds the same combinator entity.
+---------------------------------------------------------------------------------------------------
 Version: 2.1.4
 Date: 2026-08-21
   Features:

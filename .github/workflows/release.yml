@@ -1,0 +1,19 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+  # Run by hand to copy README.md to the mod portal page without a release.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    uses: Eldrinn-Elantey/factorio-mod-release/.github/workflows/release.yml@v1
+    with:
+      readme-only: ${{ github.event_name == 'workflow_dispatch' }}
+    secrets:
+      FACTORIO_API_KEY: ${{ secrets.FACTORIO_API_KEY }}
