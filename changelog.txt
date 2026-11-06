@@ -1,5 +1,10 @@
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 Version: 0.0.0
+  Bugfixes:
+    - The mod title no longer has the extra word Constant, which the original mod page does not use.
+---------------------------------------------------------------------------------------------------
+Version: 2.1.5
+Date: 2026-11-06
   Bugfixes:
     - The combinator recipe unlocks with Automated rail transportation. It waited for a technology that Cybersyn 2 does not have, so the combinator could not be crafted.
   Changes:
@@ -20,7 +25,7 @@ Date: 2026-08-21
     - Fixed crash when closing equipment grids (armor, spidertron) in multiplayer (on_gui_closed).
     - Fixed slot button count formatting for string values like '-' and placeholders.
     - Fixed window expand/collapse sprite rendering in Factorio 2.0.
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 Version: 2.1.3
 Date: 2026-08-10
   Changes:
