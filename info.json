@@ -5,7 +5,7 @@
   "title": "Cybersyn 2 Constant Combinator Fork",
   "author": "Eldrinn",
   "homepage": "https://github.com/Eldrinn-Elantey/cybersyn2-combinator-fork",
-  "description": "Fork of the Cybersyn 2 Constant Combinator by moral1ty.",
+  "description": "Fork of the Cybersyn 2 Constant Combinator by moral1ty with the recipe unlock fixed.",
   "dependencies": [
     "fcore >= 1.0.0",
     "cybersyn2",

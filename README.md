@@ -2,7 +2,7 @@
 
 [![FACTORIO](https://img.shields.io/badge/dynamic/json?color=orange&label=Factorio&query=downloads_count&suffix=%20downloads&url=https://mods.factorio.com/api/mods/cybersyn2-combinator-fork)](https://mods.factorio.com/mod/cybersyn2-combinator-fork) [![COMMUNITY](https://img.shields.io/badge/Discord-Community-blue?logo=discord)](https://discord.gg/FcFEu36QBc) [![GitHub](https://img.shields.io/badge/Github-Source-white?logo=github)](https://github.com/Eldrinn-Elantey/cybersyn2-combinator-fork)
 
-Fork of [Cybersyn 2 Constant Combinator](https://mods.factorio.com/mod/cybersyn2-combinator) by moral1ty, based on version 2.1.4. The code comes from [mods_factorio](https://github.com/VladislavPrimakov/mods_factorio/tree/master/cybersyn2-combinator).
+Fork of [Cybersyn 2 Constant Combinator](https://mods.factorio.com/mod/cybersyn2-combinator) by moral1ty, based on version 2.1.4. The original recipe waits for the technology `cybersyn2-train-network`, which Cybersyn 2 does not have, so the combinator cannot be crafted. This fork unlocks the recipe with Automated rail transportation. The code comes from [mods_factorio](https://github.com/VladislavPrimakov/mods_factorio/tree/master/cybersyn2-combinator).
 
 ## What it does
 

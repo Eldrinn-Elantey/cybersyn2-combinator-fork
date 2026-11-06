@@ -1,5 +1,7 @@
 ----------------------------------------------------------------------------------------------------
 Version: 0.0.0
+  Bugfixes:
+    - The combinator recipe unlocks with Automated rail transportation. It waited for a technology that Cybersyn 2 does not have, so the combinator could not be crafted.
   Changes:
     - Forked from Cybersyn 2 Constant Combinator 2.1.4 as cybersyn2-combinator-fork. The combinator and its settings are the same.
     - Incompatible with cybersyn2-combinator, which adds the same combinator entity.
