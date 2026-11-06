@@ -2,3 +2,4 @@ node_modules/
 dist/
 lualib_bundle.lua
 .DS_Store
+build/

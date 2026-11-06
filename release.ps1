@@ -1,0 +1,59 @@
+#requires -Version 5
+# Builds build\<name>_<version>.zip. Pass -Install to also copy it into the local mods folder.
+param(
+    [string]$Version,
+    [switch]$Install,
+    [string]$ModsDir = "$env:APPDATA\Factorio\mods"
+)
+
+$ErrorActionPreference = 'Stop'
+Set-Location $PSScriptRoot
+
+$info = Get-Content info.json -Raw | ConvertFrom-Json
+
+# The git tag is what a release is named after, so it decides the version. Falling back to
+# the last tag reachable from HEAD keeps local builds working between releases, and to the
+# committed value when there is no tag or no git at all.
+if (-not $Version) { $Version = $env:GITHUB_REF_NAME }
+if (-not $Version) { $Version = git describe --tags --abbrev=0 2>$null }
+if (-not $Version) { $Version = $info.version }
+if ($Version -notmatch '^\d+\.\d+\.\d+$') { throw "Version '$Version' is not <major>.<minor>.<patch>" }
+
+# A release whose stamped changelog never made it back to the default branch leaves its
+# entries under the 0.0.0 placeholder, and the next release would publish them as new. That
+# shows up as the last tag before this version having no changelog entry of its own, so the
+# build stops on it.
+$previous = git tag --list 2>$null |
+    Where-Object { $_ -match '^\d+\.\d+\.\d+$' -and [version]$_ -lt [version]$Version } |
+    Sort-Object { [version]$_ } | Select-Object -Last 1
+if ($previous -and (Get-Content changelog.txt -Raw) -notmatch "(?m)^Version: $([regex]::Escape($previous))\r?$") {
+    throw "changelog.txt has no entry for $previous, the last release before $Version"
+}
+
+# The mod is written in TypeScript, so the zip is made from the compiled dist\ folder.
+if (-not (Test-Path node_modules)) {
+    npm ci
+    if ($LASTEXITCODE -ne 0) { throw 'npm ci failed' }
+}
+node build.mjs
+if ($LASTEXITCODE -ne 0) { throw 'Build failed' }
+
+$info.version = $Version
+$folder = "$($info.name)_$Version"
+
+$staging = Join-Path 'build' $folder
+if (Test-Path 'build') { Remove-Item 'build' -Recurse -Force }
+New-Item -ItemType Directory -Path $staging -Force | Out-Null
+Copy-Item (Join-Path 'dist' '*') -Destination $staging -Recurse
+$info | ConvertTo-Json -Depth 10 | Set-Content (Join-Path $staging 'info.json')
+
+$zip = Join-Path 'build' "$folder.zip"
+Compress-Archive -Path $staging -DestinationPath $zip -Force
+Remove-Item $staging -Recurse -Force
+
+Write-Host "Built $zip"
+
+if ($Install) {
+    Copy-Item $zip -Destination $ModsDir -Force
+    Write-Host "Installed to $ModsDir"
+}
